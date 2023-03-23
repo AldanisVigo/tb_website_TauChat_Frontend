@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,21 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.outgoing-message-item {
+  max-width : 50%;
+  margin-left: auto;
+}
+
+.incoming-message-item {
+  max-width: 50%;
+  margin-right: auto;
+}
+
+.main-header {
+  background: lightgrey;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 30px;
 }
