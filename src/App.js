@@ -64,7 +64,7 @@ const Chat = () => {
         const h = window.location.hostname === "localhost" ? "yz3dacrr0.g.tau.link" : window.location.host
 
         // Append the host url to the returned socket url path
-        const newWsUrl = `wss://${h}/${socketUrlRequest.socket}`
+        const newWsUrl = `ws://${h}/${socketUrlRequest.socket}`
 
         // Generate a socket using the url
         const socket = getWebSocketInstance(newWsUrl)
