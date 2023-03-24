@@ -30,7 +30,7 @@ const Chat = () => {
     const getSocketUrl = useCallback(async ()=>{
         try{
             // Send a request to the backend to get the pubsub channel websocket url
-            const request = await fetch("https://yz3dacrr0.g.tau.link/taulistendpoint?endpoint=chat&room=main",{
+            const request = await fetch(window.hostname + "/chatendpoint",{
                 method: "POST",
                 headers : {
                     "Content-Type" : "application/json"
