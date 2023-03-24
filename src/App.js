@@ -29,8 +29,11 @@ const Chat = () => {
     */
     const getSocketUrl = useCallback(async ()=>{
         try{
+            const dFunctionEndpoint = "http://" + "hal.computer.com:3096" + "/chatendpoint"
+            console.log(dFunctionEndpoint)
+
             // Send a request to the backend to get the pubsub channel websocket url
-            const request = await fetch(window.hostname + "/chatendpoint",{
+            const request = await fetch(dFunctionEndpoint,{
                 method: "POST",
                 headers : {
                     "Content-Type" : "application/json"
@@ -61,7 +64,7 @@ const Chat = () => {
         const socketUrlRequest = await getSocketUrl()
 
         // Host
-        const h = window.location.hostname === "localhost" ? "yz3dacrr0.g.tau.link" : window.location.host
+        const h = window.location.hostname === "localhost" ? "hal.computers.com:3096" : window.location.host
 
         // Append the host url to the returned socket url path
         const newWsUrl = `ws://${h}/${socketUrlRequest.socket}`
@@ -140,7 +143,7 @@ const Chat = () => {
           console.log(username)
             const msg = JSON.parse(message)
             const msgItem = document.createElement("div")
-            msgItem.classList.add(msg.sender == username ? "outgoing-message-item" : "incoming-message-item")
+            msgItem.classList.add(msg.sender === username ? "outgoing-message-item" : "incoming-message-item")
             msgItem.innerText = `${msg.sender + " - " + msg.msg}`
             chatMessagesContainer.current.appendChild(msgItem)
             msgItem.scrollIntoView()
